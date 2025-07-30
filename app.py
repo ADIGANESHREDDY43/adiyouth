@@ -42,8 +42,8 @@ def create_app():
         return render_template('expired.html')
 
     def send_email(recipient, link):
-        sender = "titantech143@gmail.com"
-        password = "kknf ilzc pqvp ewbg"
+        sender = "datadynamosofficial@gmail.com"
+        password = "pbpp ulwg uqqd goqk"
         message = f"Subject:  Your Secure Message\n\nClick to view: {link}"
 
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
