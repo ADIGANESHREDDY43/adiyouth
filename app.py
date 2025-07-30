@@ -26,7 +26,7 @@ def create_app():
         db.session.add(message)
         db.session.commit()
 
-        link = f"http://localhost:5000/view/{token}"
+        link = f"https://adiyouth.onrender.com/view/{token}"
         send_email(email, link)
 
         return render_template('success.html', link=link)
@@ -42,8 +42,8 @@ def create_app():
         return render_template('expired.html')
 
     def send_email(recipient, link):
-        sender = "adiganeshayyappareddykovvuri@gmail.com"
-        password = "dxxm mnvt qxeu bfee"
+        sender = "titantech143@gmail.com"
+        password = "kknf ilzc pqvp ewbg"
         message = f"Subject:  Your Secure Message\n\nClick to view: {link}"
 
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
