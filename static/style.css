@@ -1,0 +1,136 @@
+body {
+    background: linear-gradient(135deg, #0e0e0e, #1c1c1c);
+    color: #00ffc3;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    transition: background 1s ease;
+}
+
+/* Headings */
+h2, h3 {
+    color: #00ffc3;
+    text-shadow: 0 0 8px #00ffc3;
+    transition: color 0.3s;
+}
+
+form {
+    background: rgba(28, 28, 28, 0.85);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #00ffc3;
+    width: 320px;
+    animation: fadeIn 1s ease-out;
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease;
+}
+
+form:hover {
+    transform: scale(1.02);
+}
+
+textarea, input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #2a2a2a;
+    border: 1px solid #00ffc3;
+    color: #ffffff;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    transition: box-shadow 0.3s;
+}
+
+textarea:focus, input[type="email"]:focus {
+    outline: none;
+    box-shadow: 0 0 12px #00ffc3;
+    background-color: #333;
+}
+
+button {
+    background: linear-gradient(to right, #00ffc3, #aaff00);
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: transform 0.2s ease-in-out, background 0.4s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    animation: pop 0.3s ease-in-out;
+    background: linear-gradient(to right, #aaff00, #00ffc3);
+}
+
+button:disabled {
+    background-color: #444;
+    cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes vanish {
+    0% { opacity: 1; transform: scale(1); }
+    50% { transform: scale(1.1) rotate(2deg); }
+    100% { opacity: 0; transform: scale(0.5) rotate(-3deg); }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+.flicker {
+    animation: flicker 1s infinite;
+    text-shadow: 0 0 5px #00ffc3;
+}
+
+.destroyed {
+    animation: vanish 1s forwards;
+}
+
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #00ffc3;
+    animation: typing 2.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    width: 0;
+    font-size: 1.4em;
+    display: inline-block;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: #00ffc3; }
+}
+
+
+
+
+
