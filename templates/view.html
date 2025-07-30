@@ -1,3 +1,75 @@
-<h3>Secret Message:</h3>
-<p>{{ content }}</p>
-<p><em>This message is now destroyed and can’t be viewed again.</em></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Message</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h2 {
+      color: #00796b;
+      margin-bottom: 20px;
+      animation: fadeInDown 0.6s ease;
+    }
+
+    .message-box {
+      background-color: #fbe9e7;
+      padding: 20px;
+      border-left: 4px solid #f06292;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 5px 20px rgba(240, 98, 146, 0.15);
+      animation: fadeIn 0.8s ease;
+    }
+
+    .message-box p {
+      font-size: 16px;
+      color: #333;
+      word-wrap: break-word;
+    }
+
+    .note {
+      color: #d84315;
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 15px;
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <h2>Your Self-Destructing Message</h2>
+  <div class="message-box">
+    <p>{{ content }}</p>
+  </div>
+  <p class="note">This message will now be destroyed.</p>
+</body>
+</html>
