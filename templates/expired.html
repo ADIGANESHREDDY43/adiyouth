@@ -1,1 +1,100 @@
-<h3>This message is no longer available.</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Expired</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #fce4ec, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      text-align: center;
+      transition: background-color 0.5s ease;
+    }
+
+    .message {
+      background-color: #fff3f3;
+      padding: 30px;
+      border-left: 4px solid #e53935;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(229, 57, 53, 0.2);
+      max-width: 400px;
+      animation: fadeIn 0.8s ease;
+    }
+
+    h3 {
+      color: #c62828;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    #countdown {
+      font-size: 18px;
+      font-weight: bold;
+      color: #d32f2f;
+      margin-top: 10px;
+    }
+
+    #startBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #d32f2f;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="message">
+    <h3>This message is no longer available.</h3>
+    <div id="countdown">Click the button to start self-destruct countdown.</div>
+    <button id="startBtn">Start Countdown</button>
+  </div>
+
+  <audio id="boom" src="{{ url_for('static', filename='bomb.mp3') }}"></audio>
+
+  <script>
+    const startBtn = document.getElementById("startBtn");
+    const countdownEl = document.getElementById("countdown");
+    const bombSound = document.getElementById("boom");
+
+    startBtn.addEventListener("click", () => {
+      startBtn.disabled = true;
+      startBtn.style.display = "none";
+      let timeLeft = 10; // Reduced countdown to 10 seconds
+
+      const countdown = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          countdownEl.textContent = `Self-destructing in ${timeLeft} second${timeLeft === 1 ? '' : 's'}...`;
+        } else {
+          clearInterval(countdown);
+          countdownEl.textContent = "💥 Boom!";
+          bombSound.play(); // Works after user interaction
+          document.body.style.backgroundColor = "#ffebee";
+          if (navigator.vibrate) {
+            navigator.vibrate(500);
+          }
+        }
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>
