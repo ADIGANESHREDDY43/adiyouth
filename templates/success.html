@@ -1,2 +1,76 @@
-<h3>Your message has been sent!</h3>
-<p>Link: <a href="{{ link }}">{{ link }}</a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Message Sent</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 450px;
+      width: 90%;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    h2 {
+      color: #00796b;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .link-box {
+      margin-top: 20px;
+      background-color: #fce4ec;
+      padding: 12px;
+      border-left: 4px solid #f06292;
+      border-radius: 8px;
+      word-wrap: break-word;
+      transition: box-shadow 0.3s;
+    }
+
+    .link-box:hover {
+      box-shadow: 0 5px 15px rgba(240, 98, 146, 0.2);
+    }
+
+    .link-box a {
+      color: #d81b60;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Message Sent Successfully!</h2>
+    <p>A self-destructing message has been sent.</p>
+    <p style="margin-top: 20px;">Secret Link:</p>
+    <div class="link-box">
+      <a href="{{ link }}">{{ link }}</a>
+    </div>
+  </div>
+</body>
+</html>
